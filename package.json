@@ -1,0 +1,60 @@
+{
+  "name": "@zkpersona/noir-library-starter",
+  "version": "0.1.0",
+  "description": "Template for building Noir libraries.",
+  "keywords": [
+    "noir",
+    "noir-lang",
+    "noir-library",
+    "zkp",
+    "zero-knowledge-proofs",
+    "zk",
+    "aztec",
+    "ethereum",
+    "cryptography",
+    "privacy"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Vedant Chainani",
+    "email": "vedant@zkpersona.xyz",
+    "url": "https://zkpersona.xyz"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist/**",
+    "lib/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "vitest",
+    "test": "vitest run",
+    "format": "pnpm biome format",
+    "format:write": "pnpm biome format --write",
+    "release": "pnpm run build && changeset publish",
+    "version-packages": "changeset version",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.28.1",
+    "@noir-lang/noir_codegen": "^1.0.0-beta.3",
+    "@types/node": "^22",
+    "dotenv": "^16.4.7",
+    "klarity": "^0.0.3",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.4"
+  },
+  "dependencies": {
+    "@noir-lang/noir_js": "^1.0.0-beta.3",
+    "@zkpersona/noir-helpers": "^0.1.0"
+  }
+}

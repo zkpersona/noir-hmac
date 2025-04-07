@@ -1,0 +1,3 @@
+[workspace]
+members = ["lib", "examples/lib_example"]
+default-member = "lib"
