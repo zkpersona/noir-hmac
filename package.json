@@ -56,6 +56,6 @@
   },
   "dependencies": {
     "@noir-lang/noir_js": "^1.0.0-beta.3",
-    "@zkpersona/noir-helpers": "^0.1.0"
+    "@zkpersona/noir-helpers": "^0.2.0"
   }
 }
