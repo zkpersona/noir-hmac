@@ -1,23 +1,14 @@
-# Noir Library Starter
+# Noir HMAC(Hash-based Message Authentication Code)
 
-This is a template for building Noir libraries. It includes a basic example of a Noir library with an example bin circuit and test suite.
+Noir implementation of HMAC(Hash-based Message Authentication Code). Currently, the following hash functions are supported:
 
- This Starter Template includes:
+- SHA256
 
-- A basic library at `lib/`
-- Example bin circuit at `examples/lib_example/`
-- Tests at `tests/`
-- CI Scripts at `scripts/`
-
----
-
-# LIBRARY_NAME
-
-Add a brief description of the library
+> Note: SHA512 will be supported in the future as soon as library is reviewed. See [noir-lang/sha512/pull/2](https://github.com/noir-lang/sha512/pull/2)
 
 ## Noir version compatibility
 
-This library is tested to work as of Noir version 0.36.0 & 1.0.0-beta.x.
+This library is tested to work as of Noir version >=1.0.0.beta-2
 
 ## Benchmarks
 
@@ -30,25 +21,32 @@ with the following command.
 
 The benchmark will be generated at `./gates_report.json`.
 
-## Profiling
-
-To profile the circuit, run the following command:
-
-```bash
-./scripts/profile.sh
-```
-
 ## Installation
 
 In your _Nargo.toml_ file, add the version of this library you would like to install under dependency:
 
 ```toml
 [dependencies]
-LIBRARY = { tag = "v0.1.0", git = "https://github.com/noir-lang/LIBRARY_NAME" }
+noir_hmac = { tag = "main", git = "https://github.com/zkpersona/noir-hmac", directory = "lib" }
 ```
 
-## `library`
+## Usage
 
-### Usage
+### HMAC-SHA256
 
-`PLACEHOLDER`
+```noir
+use noir_hmac::hmac_sha256::hmac_sha256;
+
+fn hmac_sha256_test() {
+    let key: BoundedVec<u8, 10> = BoundedVec::from_array("secret_key".as_bytes());
+    let message: BoundedVec<u8, 11> = BoundedVec::from_array("hello_world".as_bytes());
+    let hmac: [u8; 32] = hmac_sha256(key, message);
+
+    let expected: [u8; 32] = [
+        32, 245, 74, 230, 153, 92, 121, 130, 198, 181, 233, 222, 161, 142, 167, 35, 8, 91, 220, 193,
+        245, 93, 185, 150, 77, 51, 84, 8, 96, 219, 96, 75,
+    ];
+
+    assert(hmac == expected);
+}
+```
