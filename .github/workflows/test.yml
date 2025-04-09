@@ -36,8 +36,6 @@ jobs:
       fail-fast: false
       matrix:
         toolchain: ${{ fromJson( needs.noir-version-list.outputs.noir_versions )}}
-        include:
-          - toolchain: nightly
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
