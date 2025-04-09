@@ -1,7 +1,0 @@
-[package]
-name = "lib_example"
-type = "bin"
-authors = [""]
-
-[dependencies]
-lib = { path = "../../lib" }
