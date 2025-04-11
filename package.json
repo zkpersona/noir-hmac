@@ -32,10 +32,7 @@
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
-  "files": [
-    "dist/**",
-    "lib/**"
-  ],
+  "files": ["dist/**", "lib/**"],
   "scripts": {
     "build": "tsup",
     "dev": "vitest",
