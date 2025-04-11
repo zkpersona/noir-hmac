@@ -27,7 +27,7 @@ In your _Nargo.toml_ file, add the version of this library you would like to ins
 
 ```toml
 [dependencies]
-noir_hmac = { tag = "main", git = "https://github.com/zkpersona/noir-hmac", directory = "lib" }
+noir_hmac = { tag = "v0.1.0", git = "https://github.com/zkpersona/noir-hmac", directory = "lib" }
 ```
 
 ## Usage
