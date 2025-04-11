@@ -1,6 +1,6 @@
 {
   "name": "@zkpersona/noir-hmac",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Hash-based Message Authentication Code (HMAC) implementation in Noir",
   "keywords": [
     "noir",
@@ -32,7 +32,10 @@
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
-  "files": ["dist/**", "lib/**"],
+  "files": [
+    "dist/**",
+    "lib/**"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "vitest",
